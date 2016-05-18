@@ -1,0 +1,27 @@
+﻿ html {
+    height: auto;
+}
+
+body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    font-size: 0.9em;
+}
+
+
+#map_canvas {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+@media print {
+    #map_canvas {
+        height: 950px;
+    }
+}

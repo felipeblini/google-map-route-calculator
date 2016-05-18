@@ -1,0 +1,123 @@
+﻿<urlset debug="true">
+  <script id="FirebugLite" firebugIgnore="true" extension="Chrome"/>
+  <Especialista>
+    <Id>1</Id>
+    <Nome>Ferragens Pontual</Nome>
+    <Latitude>-15.841108</Latitude>
+    <Longitude>-48.02267</Longitude>
+    <Endereco>Av. das Araucárias</Endereco>
+    <Telefone>(61) 3435-3030</Telefone>
+    <Descricao>
+      Feerragens - Elétrica - Hidráulica - Telefonia e Utilidades para o lar
+    </Descricao>
+    <Destaque>0</Destaque>
+    <Logo>pontual.jpg</Logo>
+  </Especialista>
+  <Especialista>
+    <Id>2</Id>
+    <Nome>Ponto de Táxi Águas Claras</Nome>
+    <Latitude>-15.833889</Latitude>
+    <Longitude>-48.015556</Longitude>
+    <Endereco>
+      Av. das Castanheiras - Qd 103 - Lote 920 - Bl. "A" - Ed Ônix - Águas Claras - DF
+    </Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>
+      Conforto, Pontualidade e Segurança - Fazemos Serviço de Reserva
+    </Descricao>
+    <Destaque>0</Destaque>
+    <Logo>ponto-de-taxi.jpg</Logo>
+  </Especialista>
+  <Especialista>
+    <Id>3</Id>
+    <Nome>Ponto de Táxi Águas Claras 24hs</Nome>
+    <Latitude>-15.841944</Latitude>
+    <Longitude>-48.023056</Longitude>
+    <Endereco>Rua 19 Sul Qd 205</Endereco>
+    <Telefone>(61) 3435-8885 / (61) 3435-8899</Telefone>
+    <Descricao>Em frente ao Pão de Açucarr, atendemos 24hs</Descricao>
+    <Destaque>0</Destaque>
+    <Logo>ponto-de-taxi2.jpg</Logo>
+  </Especialista>
+  <Especialista>
+    <Id>4</Id>
+    <Nome>Cobra Car Service</Nome>
+    <Latitude>-15.833889</Latitude>
+    <Longitude>-48.015556</Longitude>
+    <Endereco>
+      Ed Ônix Center - Bl. "C" - Lj 06 B - Águas Claras - DF
+    </Endereco>
+    <Telefone>(61) 3435-5406 / (61) 9279-4529</Telefone>
+    <Descricao>
+      Som - Vidros - Travas - Alarmes - Chupeta - Baterias - Auto Elétrica em Geral - Socorro 24hs
+    </Descricao>
+    <Destaque>0</Destaque>
+    <Logo>cobra-car-sevice.jpg</Logo>
+  </Especialista>
+  <Especialista>
+    <Id>5</Id>
+    <Nome>Drogaria Visão</Nome>
+    <Latitude>-15.833889</Latitude>
+    <Longitude>-48.015556</Longitude>
+    <Endereco>Ed Ônix Center</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Eu tbm posso resolver seu problema</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+  <Especialista>
+    <Id>6</Id>
+    <Nome>Patas e Pelos</Nome>
+    <Latitude>-15.833889</Latitude>
+    <Longitude>-48.015556</Longitude>
+    <Endereco>Ed Ônix Center</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Olá, tudo bem?</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+  <Especialista>
+    <Id>7</Id>
+    <Nome>Banca de Revistas</Nome>
+    <Latitude>-15.833889</Latitude>
+    <Longitude>-48.015556</Longitude>
+    <Endereco>Ed Ônix Center</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Olá, tudo bem?</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+  <Especialista>
+    <Id>8</Id>
+    <Nome>Pretador de Servi;o 8</Nome>
+    <Latitude>-15.780288</Latitude>
+    <Longitude>-47.993597</Longitude>
+    <Endereco>Estrutural</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Olá, tudo bem?</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+  <Especialista>
+    <Id>9</Id>
+    <Nome>Pretador de Servi;o 8</Nome>
+    <Latitude>-15.780288</Latitude>
+    <Longitude>-47.993597</Longitude>
+    <Endereco>Estrutural</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Olá, tudo bem?</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+  <Especialista>
+    <Id>10</Id>
+    <Nome>Pretador de Servi;o 8</Nome>
+    <Latitude>-15.780288</Latitude>
+    <Longitude>-47.993597</Longitude>
+    <Endereco>Estrutural</Endereco>
+    <Telefone>(61) 3554-6598</Telefone>
+    <Descricao>Olá, tudo bem?</Descricao>
+    <Destaque>0</Destaque>
+    <Logo/>
+  </Especialista>
+</urlset>
