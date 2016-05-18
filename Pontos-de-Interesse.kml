@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Pontos de Interesse</name>
+		<Placemark>
+			<name>Rua Ministro Gastão Mesquita</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.67981929999996,-23.5387675,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sumaré</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.678066400000034,-23.5509186,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Rua Bela Cintra</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.66297140000001,-23.5574614,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Santa Cecilia</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.64934359999995,-23.5390511,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Higienópolis</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.6501808,-23.5479367,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Humberto I </name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.6409326,-23.5866235,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Estados unidos</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.6613281,-23.5744601,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Vila Olímpia</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-46.68318270000001,-23.59445,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Style id='icon-503-DB4436-nodesc-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-503-DB4436-nodesc-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>
