@@ -6,13 +6,40 @@
     <title>Explore as redondezas</title>
 
     <link href="css/estilo.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAHnukcKfjgitOWN5XFsGchuyJnyT42JiA&amp;sensor=false"></script>
-    <script src="js/oms.min.js"></script>
-    <script src="js/mapa.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="components/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="map_canvas"></div>
+    <div class="container-fluid">
+        <div class="form-mapa row">
+            <form action="">
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
+                        <input type="text" class="form-control" placeholder="De..." id="txtEnderecoOrigem" name="txtEnderecoOrigem" required>
+                    </div>
+                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeOrigem" name="txtLatitudeOrigem" rquired>
+                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeOrigem" name="txtLongitudeOrigem" required>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Para..." id="txtEnderecoDestino" name="txtEnderecoDestino" required>
+                        <span class="input-group-btn">
+                            <input type="submit" class="btn btn-default" value="Go!" id="goSubmit" />
+                        </span>
+                    </div>
+                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeDestino" name="txtLatitudeOrihem" required>
+                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeDestino" name="txtLongitudeOrigem" required>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div id="mapa"></div>
 </body>
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAHnukcKfjgitOWN5XFsGchuyJnyT42JiA&amp;sensor=false"></script>
+    <script src="js/mapa.js"></script>
+    <script src="components/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 </html>

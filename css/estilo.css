@@ -11,7 +11,7 @@ body {
 }
 
 
-#map_canvas {
+#mapa {
     height: auto;
     position: absolute;
     bottom: 0;
@@ -21,7 +21,32 @@ body {
 }
 
 @media print {
-    #map_canvas {
+    #mapa {
         height: 950px;
     }
 }
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+@media(min-width: 768px) {
+    .input-group {
+        margin-bottom: 0;
+    }
+}
+
+.form-mapa {
+    position: absolute;
+    z-index: 1;
+    border: solid 1px #ccc;
+    background: #fff;
+    padding: 10px;
+    max-width: 500px;
+    border-bottom-right-radius: 6px;
+}
+
+.input-group {
+    max-width: 220px;
+}
+
