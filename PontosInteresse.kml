@@ -45,14 +45,7 @@
 				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
 			</Pair>
 		</StyleMap>
-    <Placemark>
-			<name>Sumaré</name>
-			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
-			<Point>
-				<coordinates>-46.678066400000034,-23.5509186,0.0</coordinates>
-			</Point>
-		</Placemark>
-    <Placemark>
+    	<Placemark>
 			<name>Rua Ministro Gastão Mesquita</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
@@ -88,7 +81,7 @@
 			</Point>
 		</Placemark>
 		<Placemark>
-			<name>Humberto I </name>
+			<name>Humberto I</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
 				<coordinates>-46.6409326,-23.5866235,0.0</coordinates>

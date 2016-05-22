@@ -1,9 +1,11 @@
-$(document).ready(function () {
-    
-    var gm = google.maps;
-    var geocoder = new gm.Geocoder();
-    var marker;
+/// <reference path="intermediatePoints.js" />
 
+var gm = google.maps;
+var geocoder = new gm.Geocoder();
+var marker;
+var map;
+
+$(document).ready(function () {
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -21,7 +23,7 @@ $(document).ready(function () {
     
     function showMap(userLat, userLong) {
         var latlng = new gm.LatLng(userLat, userLong);
-        var map = new gm.Map(document.getElementById('mapa'), {
+        map = new gm.Map(document.getElementById('mapa'), {
             mapTypeId: gm.MapTypeId.ROADMAP,
             center: latlng, zoom: 5
         });
@@ -43,7 +45,7 @@ $(document).ready(function () {
     
     // var kmlLayer = new gm.KmlLayer(kmlUrl2, kmlOptions);
     
-    function addressAutocompleate(direction) {
+    function addressAutocomplete(direction) {
         return {
             source: function (request, response) {
             
@@ -69,12 +71,11 @@ $(document).ready(function () {
         };
     }
     
-    $('#txtEnderecoOrigem').autocomplete(addressAutocompleate('Origem'));
+    $('#txtEnderecoOrigem').autocomplete(addressAutocomplete('Origem'));
     
-    $('#txtEnderecoDestino').autocomplete(addressAutocompleate('Destino'));
+    $('#txtEnderecoDestino').autocomplete(addressAutocomplete('Destino'));
     
-    $('#goSubmit').on('click', function(e) {
-        //e.preventDefault();
+    $('#goSubmit').on('click', function() {
         
         var origemLat = $('#txtLatitudeOrigem').val();
         var origemLong = $('#txtLongitudeOrigem').val();
@@ -88,52 +89,104 @@ $(document).ready(function () {
     });
     
     function goButton(oLat, oLong, dLat, dLong) {
-        var origemLatLong = gm.LatLng(oLat, oLong);
-        var destinoLatLong = gm.LatLng(dLat, dLong);
-        var getIntermediatePoints = new IntermediatePoints();
-        getIntermediatePoints.getItens(foo);
+        var pointsOfInterest = new IntermediatePoints();
         
-        function foo(result) {
-            console.log(result);
-            console.log(this);
-        }
-    }
-
-    function IntermediatePoints() { }
-    
-    IntermediatePoints.prototype.getItens = function(callback) {
-        var intermetiatePoints = [];
+        pointsOfInterest.getItens(callback);
         
-        $.ajax({
-            type: 'GET',
-            url: '/PontosInteresse.kml',
-            dataType: 'xml',
-            success: xmlParser
-        });
-
-        function xmlParser(xml) {
-            $(xml).find('Placemark').each(function () {
-                var name = $(this).find('name').text();
-                var coordinates = $(this).find('Point').find('coordinates').text();
-                var lat = coordinates.split(',')[1];
-                var long = coordinates.split(',')[0];
-
-                var loc = new gm.LatLng(lat, long);
-
-                var point = {
-                    name: name,
-                    coordinates: coordinates,
-                    loc: loc
+        function callback(data) {
+            var points = {
+                data: data.intermetiatePoints,
+                size: data.intermetiatePoints.length
+            };
+            
+            var distancesFromOrigin = [], distancesFromDestiny = [];
+            
+            var callbackOrigin = function(data) {
+                distancesFromOrigin.push(data);
+            };
+            
+            var callbackDestiny = function(data) {
+                distancesFromDestiny.push(data);
+                
+                if(distancesFromDestiny.length === points.size) {
+                    setTimeout(function() {
+                        calcClosestPoints();
+                    }, 500);
+                }
+            };
+            
+            // compare each point
+            for(var i = 0; i < points.size; i++) {
+                var interestingLat = points.data[i].lat;
+                var interestinglong = points.data[i].long;
+                
+                var defaults = {
+                    googleMaps: gm,
+                    interestingLat: interestingLat,
+                    interestinglong: interestinglong
                 };
                 
-                intermetiatePoints.push(point);
-
-            });
+                pointsOfInterest.calcDistance(defaults, oLat, oLong, callbackOrigin);
+                
+                pointsOfInterest.calcDistance(defaults, dLat, dLong, callbackDestiny);
+            }
             
-            callback.call(this, intermetiatePoints);
+            function calcClosestPoints() {            
+                var distanceFromOrigin = 0, distanceFromDestiny = 0;
+                var closestFromOrigin = {};
+                var closestFromDestiny = {};
+                
+                // find closest point from origin
+                var sizeOrigin = distancesFromOrigin.length;
+                
+                for(var i = 0; i < sizeOrigin; i++) {
+                    if(distanceFromOrigin === 0) {
+                        closestFromOrigin = distancesFromOrigin[i];
+                    } else {
+                        if(distancesFromOrigin[i].distance < closestFromOrigin.distance) {
+                            closestFromOrigin = distancesFromOrigin[i];
+                        }
+                    }
+                }
+                
+                // find closest point from destiny
+                var sizeDestiny = distancesFromDestiny.length;
+                
+                for(i = 0; i < sizeDestiny; i++) {
+                    if(distanceFromDestiny === 0) {
+                        closestFromDestiny = distancesFromDestiny[i];
+                    } else {
+                        if(distancesFromDestiny[i].distance < closestFromDestiny.distance) {
+                            closestFromDestiny = distancesFromDestiny[i];
+                        }
+                    }
+                }
+                
+                var pi = {
+                    lat: oLat,
+                    long: oLong
+                };
+                
+                var p1 = closestFromOrigin;
+                
+                var p2 = closestFromDestiny;
+                
+                var pj = {
+                    lat: dLat,
+                    long: dLong
+                };
+                
+                renderRoute(pi, p1, p2, pj);
+            }
+            
+            function renderRoute(pi, p1, p2, pj) {
+                console.log('pi', pi);
+                console.log('p1', p1);
+                console.log('p2', p2);
+                console.log('pj', pj);
+                
+                
+            }
         }
-    };
-        
-    //     map.fitBounds(bounds);
-    // }
+    }
 });
