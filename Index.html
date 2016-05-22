@@ -12,24 +12,25 @@
 <body>
     <div class="container-fluid">
         <div class="form-mapa row">
-            <form action="">
+            <form action="" id="address-form">
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
                         <input type="text" class="form-control" placeholder="De..." id="txtEnderecoOrigem" name="txtEnderecoOrigem" required>
                     </div>
-                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeOrigem" name="txtLatitudeOrigem" rquired>
-                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeOrigem" name="txtLongitudeOrigem" required>
+                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeOrigem" name="txtLatitudeOrigem">
+                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeOrigem" name="txtLongitudeOrigem">
                 </div>
                 <div class="col-sm-6">
                     <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
                         <input type="text" class="form-control" placeholder="Para..." id="txtEnderecoDestino" name="txtEnderecoDestino" required>
                         <span class="input-group-btn">
                             <input type="submit" class="btn btn-default" value="Go!" id="goSubmit" />
                         </span>
                     </div>
-                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeDestino" name="txtLatitudeOrihem" required>
-                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeDestino" name="txtLongitudeOrigem" required>
+                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeDestino" name="txtLatitudeOrihem">
+                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeDestino" name="txtLongitudeOrigem">
                 </div>
             </form>
         </div>

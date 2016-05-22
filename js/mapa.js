@@ -45,24 +45,37 @@ $(document).ready(function () {
     
     // var kmlLayer = new gm.KmlLayer(kmlUrl2, kmlOptions);
     
+    function getLatLonFromAddress(address, elLat, elLon, response) {
+        geocoder.geocode(address, function (results, status) {
+            response($.map(results, function (item) {
+                elLat.val(item.geometry.location.lat());
+                elLon.val(item.geometry.location.lng());
+                
+                return {
+                    label: item.formatted_address,
+                    value: item.formatted_address,
+                    latitude: item.geometry.location.lat(),
+                    longitude: item.geometry.location.lng()
+                };
+            }));
+        });
+    }
+    
     function addressAutocomplete(direction) {
+        var elLat = $('#txtLatitude' + direction);
+        var elLon = $('#txtLongitude' + direction);
+        
         return {
             source: function (request, response) {
-            
-                geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
-                    response($.map(results, function (item) {
-                        return {
-                            label: item.formatted_address,
-                            value: item.formatted_address,
-                            latitude: item.geometry.location.lat(),
-                            longitude: item.geometry.location.lng()
-                        };
-                    }));
-                });
+                elLat.val('');
+                elLon.val('');
+                    
+                var address = { 'address': request.term + ', Brasil', 'region': 'BR' };
+                getLatLonFromAddress(address, elLat, elLon, response);
             },
             select: function (event, ui) {
-                $('#txtLatitude' + direction).val(ui.item.latitude);
-                $('#txtLongitude' + direction).val(ui.item.longitude);
+                elLat.val(ui.item.latitude);
+                elLon.val(ui.item.longitude);
                 var location = new gm.LatLng(ui.item.latitude, ui.item.longitude);
                 marker.setPosition(location);
                 map.setCenter(location);
@@ -77,15 +90,24 @@ $(document).ready(function () {
     
     $('#goSubmit').on('click', function() {
         
+        var myForm = $('#address-form');
+        if (!myForm[0].checkValidity()) {
+            myForm.find(':submit').click();
+        }
+        
         var origemAddress = $('#txtEnderecoOrigem').val();
         var origemLat = $('#txtLatitudeOrigem').val();
         var origemLong = $('#txtLongitudeOrigem').val();
         
         var destinoAddress = $('#txtEnderecoDestino').val();
         var destinoLat = $('#txtLatitudeDestino').val();
-        var destinoLong = $('#txtLongitudeDestino').val(); 
+        var destinoLong = $('#txtLongitudeDestino').val();
         
-        goButton(origemLat, origemLong, destinoLat, destinoLong, origemAddress, destinoAddress);
+        if(!origemLat || !destinoLat) {
+            alert('Endereço de origem ou destino inválido ou inexistente');
+        } else {
+            goButton(origemLat, origemLong, destinoLat, destinoLong, origemAddress, destinoAddress);
+        }
         
         return false;
     });
@@ -166,11 +188,10 @@ $(document).ready(function () {
                 var sizeDestiny = distancesFromDestiny.length;
                 
                 for(i = 0; i < sizeDestiny; i++) {
-                    console.log(distancesFromDestiny[i].distance);
                     if(closestFromDestiny === null) {
                         closestFromDestiny = distancesFromDestiny[i];
                     } else {
-                        if(distancesFromDestiny[i].distance < closestFromDestiny.distance && distancesFromDestiny[i].coordinates != closestFromOrigin.coordinates) {
+                        if(distancesFromDestiny[i].distance < closestFromDestiny.distance) {
                             closestFromDestiny = distancesFromDestiny[i];
                         }
                     }
