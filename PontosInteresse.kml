@@ -49,56 +49,56 @@
 			<name>Rua Ministro Gastão Mesquita</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.67981929999996,-23.5387675,0.0</coordinates>
+				<coordinates>-46.67981929999996,-23.5387675</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Sumaré</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.678066400000034,-23.5509186,0.0</coordinates>
+				<coordinates>-46.678066400000034,-23.5509186</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Rua Bela Cintra</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.66297140000001,-23.5574614,0.0</coordinates>
+				<coordinates>-46.66297140000001,-23.5574614</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Santa Cecilia</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.64934359999995,-23.5390511,0.0</coordinates>
+				<coordinates>-46.64934359999995,-23.5390511</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Higienópolis</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.6501808,-23.5479367,0.0</coordinates>
+				<coordinates>-46.6501808,-23.5479367</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Humberto I</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.6409326,-23.5866235,0.0</coordinates>
+				<coordinates>-46.6409326,-23.5866235</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Estados unidos</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.6613281,-23.5744601,0.0</coordinates>
+				<coordinates>-46.6613281,-23.5744601</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
 			<name>Vila Olímpia</name>
 			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
 			<Point>
-				<coordinates>-46.68318270000001,-23.59445,0.0</coordinates>
+				<coordinates>-46.68318270000001,-23.59445</coordinates>
 			</Point>
 		</Placemark>
   </Document>

@@ -22,15 +22,15 @@ var IntermediatePoints = (function() {
 
                 var point = {
                     name: name,
+                    coordinates: coordinates,
                     lat: lat,
                     long: long
                 };
                 
                 intermetiatePoints.push(point);
-
             });
             
-            callback.call(this, {'intermetiatePoints': intermetiatePoints});
+            callback.call(this, {intermetiatePoints: intermetiatePoints});
         }
     };
     
@@ -39,6 +39,8 @@ var IntermediatePoints = (function() {
             googleMaps: defaults.googleMaps,
             interestingLat: defaults.interestingLat,
             interestinglong: defaults.interestinglong,
+            interestingCoordinates: defaults.interestingCoordinates,
+            interestingName: defaults.interestingName,
             lat: lat,
             long: long
         };
@@ -50,6 +52,7 @@ var IntermediatePoints = (function() {
         var gm = params.googleMaps;
         var posFrom = params.lat + ',' + params.long;
         var posTo = params.interestingLat + ',' + params.interestinglong;
+        //var posTo = params.interestingCoordinates;
         
         var distanceService = new gm.DistanceMatrixService();
 
@@ -64,7 +67,9 @@ var IntermediatePoints = (function() {
             var toReturn = {
                 distance: distance,
                 lat: params.interestingLat,
-                long: params.interestinglong
+                long: params.interestinglong,
+                coordinates: params.interestingCoordinates,
+                name: params.interestingName
             };
             
             callback.call(this, toReturn);

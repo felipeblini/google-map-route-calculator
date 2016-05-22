@@ -64,9 +64,9 @@ $(document).ready(function () {
                 $('#txtLatitude' + direction).val(ui.item.latitude);
                 $('#txtLongitude' + direction).val(ui.item.longitude);
                 var location = new gm.LatLng(ui.item.latitude, ui.item.longitude);
-                //marker.setPosition(location);
-                //map.setCenter(location);
-                //map.setZoom(16);
+                marker.setPosition(location);
+                map.setCenter(location);
+                map.setZoom(16);
             }
         };
     }
@@ -77,18 +77,27 @@ $(document).ready(function () {
     
     $('#goSubmit').on('click', function() {
         
+        var origemAddress = $('#txtEnderecoOrigem').val();
         var origemLat = $('#txtLatitudeOrigem').val();
         var origemLong = $('#txtLongitudeOrigem').val();
         
+        var destinoAddress = $('#txtEnderecoDestino').val();
         var destinoLat = $('#txtLatitudeDestino').val();
         var destinoLong = $('#txtLongitudeDestino').val(); 
         
-        goButton(origemLat, origemLong, destinoLat, destinoLong);
+        goButton(origemLat, origemLong, destinoLat, destinoLong, origemAddress, destinoAddress);
         
         return false;
     });
     
-    function goButton(oLat, oLong, dLat, dLong) {
+    function goButton(oLat, oLong, dLat, dLong, oAddress, dAddress) {
+        var pi = {}, p1 = {}, p2 = {}, pj = {};
+        
+        var directionsService = new gm.DirectionsService;
+        var directionsDisplay = new gm.DirectionsRenderer;
+        
+        showMap();
+        
         var pointsOfInterest = new IntermediatePoints();
         
         pointsOfInterest.getItens(callback);
@@ -117,13 +126,17 @@ $(document).ready(function () {
             
             // compare each point
             for(var i = 0; i < points.size; i++) {
+                var interestingCoordinates = points.data[i].coordinates;
+                var interestingName = points.data[i].name;
                 var interestingLat = points.data[i].lat;
                 var interestinglong = points.data[i].long;
                 
                 var defaults = {
                     googleMaps: gm,
+                    interestingName: interestingName,
                     interestingLat: interestingLat,
-                    interestinglong: interestinglong
+                    interestinglong: interestinglong,
+                    interestingCoordinates: interestingCoordinates
                 };
                 
                 pointsOfInterest.calcDistance(defaults, oLat, oLong, callbackOrigin);
@@ -132,15 +145,13 @@ $(document).ready(function () {
             }
             
             function calcClosestPoints() {            
-                var distanceFromOrigin = 0, distanceFromDestiny = 0;
-                var closestFromOrigin = {};
-                var closestFromDestiny = {};
+                var closestFromOrigin = null;
                 
                 // find closest point from origin
                 var sizeOrigin = distancesFromOrigin.length;
                 
                 for(var i = 0; i < sizeOrigin; i++) {
-                    if(distanceFromOrigin === 0) {
+                    if(closestFromOrigin === null) {
                         closestFromOrigin = distancesFromOrigin[i];
                     } else {
                         if(distancesFromOrigin[i].distance < closestFromOrigin.distance) {
@@ -149,29 +160,34 @@ $(document).ready(function () {
                     }
                 }
                 
+                var closestFromDestiny = null;
+                
                 // find closest point from destiny
                 var sizeDestiny = distancesFromDestiny.length;
                 
                 for(i = 0; i < sizeDestiny; i++) {
-                    if(distanceFromDestiny === 0) {
+                    console.log(distancesFromDestiny[i].distance);
+                    if(closestFromDestiny === null) {
                         closestFromDestiny = distancesFromDestiny[i];
                     } else {
-                        if(distancesFromDestiny[i].distance < closestFromDestiny.distance) {
+                        if(distancesFromDestiny[i].distance < closestFromDestiny.distance && distancesFromDestiny[i].coordinates != closestFromOrigin.coordinates) {
                             closestFromDestiny = distancesFromDestiny[i];
                         }
                     }
                 }
                 
-                var pi = {
+                pi = {
+                    name: oAddress,
                     lat: oLat,
                     long: oLong
                 };
                 
-                var p1 = closestFromOrigin;
+                p1 = closestFromOrigin;
                 
-                var p2 = closestFromDestiny;
+                p2 = closestFromDestiny;
                 
-                var pj = {
+                pj = {
+                    name: dAddress,
                     lat: dLat,
                     long: dLong
                 };
@@ -185,7 +201,36 @@ $(document).ready(function () {
                 console.log('p2', p2);
                 console.log('pj', pj);
                 
+                directionsDisplay.setMap(null);
                 
+                directionsDisplay.setMap(map);
+                
+                var waypts = [{
+                    location: p1.lat + ',' + p1.long,
+                    //location: p1.coordinates,
+                    stopover: true
+                },{
+                    location: p2.lat + ',' + p2.long,
+                    //location: p2.coordinates,
+                    stopover: true
+                }];
+                
+                directionsService.route({
+                    origin: pi.lat + ',' + pi.long,
+                    destination: pj.lat + ',' + pj.long,
+                    waypoints: waypts,
+                    optimizeWaypoints: true,
+                    travelMode:gm.TravelMode.BICYCLING
+                }, function(response, status) {
+                    if (status === gm.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    } else {
+                        if(status == 'ZERO_RESULTS')
+                            alert('Nenhuma rota disponível para esse itinerário');
+                        else
+                         alert('Falha na requisição da rota devido a ' + status);
+                    }
+                });
             }
         }
     }
