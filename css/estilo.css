@@ -1,0 +1,57 @@
+﻿ html {
+    height: auto;
+}
+
+body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    font-size: 0.9em;
+}
+
+
+.mapa {
+    height: auto;
+    position: absolute;
+    min-height: 600px;
+    bottom: 0;
+    left: 242px;
+    right: 0;
+    top: 0;
+}
+
+@media print {
+    .mapa {
+        height: 950px;
+    }
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.form-mapa {
+    position: absolute;
+    z-index: 1;
+    border: solid 1px #ccc;
+    background: #fff;
+    padding: 10px;
+    width: 242px;
+    top: 0;
+    left: 0;
+    bottom: 0
+}
+
+.form-mapa .exportToKml a:link,
+.form-mapa .exportToKml a:hover,
+.form-mapa .exportToKml a:active,
+.form-mapa .exportToKml a:visited {
+    background: none;
+    outline: none;
+}
+
+.input-group {
+    max-width: 220px;
+}
+
