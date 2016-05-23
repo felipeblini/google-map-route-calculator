@@ -462,39 +462,22 @@ $(document).ready(function () {
                 xw.close();//clean the writer
                 xw = undefined;//don't let visitors use it, it's closed
                 
-                download(xml);
-                
-                function download(xml) {
-                    // serialize as KML text to export
-                    var placemarkText = xml;
-                    if (placemarkText) {
-                        var uriContent = "data:application/vnd.google-earth.kml+xml;charset=UTF-8," +
-                            encodeURIComponent(placemarkText); 
-                        window.open(uriContent, 'KML Download');
-                    }
-                }
-                
-                // var textFile = null,
-                //     makeTextFile = function (text) {
-                //         var data = new Blob([text], {type: 'text/plain'});
+                var saveData = (function () {
+                    var a = document.createElement('a');
+                    document.body.appendChild(a);
+                    a.style = 'display: none';
+                    return function (data, fileName) {
+                        var blob = new Blob([data], {type: 'application/vnd.google-earth.kml+xml'}),
+                            url = window.URL.createObjectURL(blob);
+                        a.href = url;
+                        a.download = fileName;
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                        document.body.removeChild(a);
+                    };
+                }());
 
-                //         // If we are replacing a previously generated file we need to
-                //         // manually revoke the object URL to avoid memory leaks.
-                //         if (textFile !== null) {
-                //             window.URL.revokeObjectURL(textFile);
-                //         }
-
-                //         textFile = window.URL.createObjectURL(data);
-
-                //         return textFile;
-                //     };
-                
-                //var link = $('#exportToKml > a.download');
-                //link.href = makeTextFile('testeeee');
-                //link.style.display = 'block';
-                //link.trigger('click');
-                
-
+                saveData(xml, 'woole-route.kml');
             }
         }
     }
