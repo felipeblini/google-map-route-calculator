@@ -30,20 +30,21 @@ body {
     margin-bottom: 10px;
 }
 
-@media(min-width: 768px) {
-    .input-group {
-        margin-bottom: 0;
-    }
-}
-
 .form-mapa {
     position: absolute;
     z-index: 1;
     border: solid 1px #ccc;
     background: #fff;
     padding: 10px;
-    max-width: 500px;
+    width: 242px;
     border-bottom-right-radius: 6px;
+    top: 0;
+    left: 0;
+    bottom: 0
+}
+
+.form-mapa .exportToKml a:hover {
+    background: none;
 }
 
 .input-group {

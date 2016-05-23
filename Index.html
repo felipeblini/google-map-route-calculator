@@ -11,30 +11,38 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="form-mapa row">
-            <form action="" id="address-form">
-                <div class="col-sm-6">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
-                        <input type="text" class="form-control" placeholder="De..." id="txtEnderecoOrigem" name="txtEnderecoOrigem" required>
+        <div class="form-mapa">
+            <div class="row">
+                <form action="" id="address-form">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
+                            <input type="text" class="form-control" placeholder="De..." id="txtEnderecoOrigem" name="txtEnderecoOrigem" required>
+                        </div>
+                        <input type="text" class="hide" placeholder="De..." id="txtLatitudeOrigem" name="txtLatitudeOrigem">
+                        <input type="text" class="hide" placeholder="De..." id="txtLongitudeOrigem" name="txtLongitudeOrigem">
                     </div>
-                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeOrigem" name="txtLatitudeOrigem">
-                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeOrigem" name="txtLongitudeOrigem">
-                </div>
-                <div class="col-sm-6">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
-                        <input type="text" class="form-control" placeholder="Para..." id="txtEnderecoDestino" name="txtEnderecoDestino" required>
-                        <span class="input-group-btn">
-                            <input type="submit" class="btn btn-default" value="Go!" id="goSubmit" />
-                        </span>
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
+                            <input type="text" class="form-control" placeholder="Para..." id="txtEnderecoDestino" name="txtEnderecoDestino" required>
+                            <span class="input-group-btn">
+                                <input type="submit" class="btn btn-default" value="Go!" id="goSubmit" />
+                            </span>
+                        </div>
+                        <input type="text" class="hide" placeholder="De..." id="txtLatitudeDestino" name="txtLatitudeOrihem">
+                        <input type="text" class="hide" placeholder="De..." id="txtLongitudeDestino" name="txtLongitudeOrigem">
                     </div>
-                    <input type="text" class="hide" placeholder="De..." id="txtLatitudeDestino" name="txtLatitudeOrihem">
-                    <input type="text" class="hide" placeholder="De..." id="txtLongitudeDestino" name="txtLongitudeOrigem">
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="row">
+                <ul class="nav">
+                    <li id="exportToKml" class="exportToKml disabled">
+                        <a href="#">Export to KML</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
     </div>
     <div id="mapa"></div>
     <script>
@@ -69,4 +77,8 @@
 <script src="js/intermediatePoints.js"></script>
 <script src="js/mapa.js"></script>
 <script src="components/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+
+<script src="js/xmlwriter.js" type="text/javascript"></script>
+<script src="js/blitz.gmap3.js" type="text/javascript"></script>
+
 </html>
