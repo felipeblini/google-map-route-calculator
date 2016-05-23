@@ -145,7 +145,7 @@ function XMLWriter( encoding, version ){
                 clean( node.c[l] );
         }
         node.n = node.a = node.c = null;
-    };
+    }
 
 //utility, you don't need it
     function format( node, indent, chr, buffer ){
@@ -174,6 +174,6 @@ function XMLWriter( encoding, version ){
             }while( i < nc );
             buffer.push( indent + '</'+node.n+'>' );
         }
-    };
+    }
 
 })();

@@ -462,7 +462,17 @@ $(document).ready(function () {
                 xw.close();//clean the writer
                 xw = undefined;//don't let visitors use it, it's closed
                 
-                console.log('kmlString', xml);
+                download(xml);
+                
+                function download(xml) {
+                    // serialize as KML text to export
+                    var placemarkText = xml;
+                    if (placemarkText) {
+                        var uriContent = "data:application/vnd.google-earth.kml+xml;charset=UTF-8," +
+                            encodeURIComponent(placemarkText); 
+                        window.open(uriContent, 'KML Download');
+                    }
+                }
                 
                 // var textFile = null,
                 //     makeTextFile = function (text) {
