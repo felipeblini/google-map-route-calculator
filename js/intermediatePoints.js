@@ -3,7 +3,7 @@ var IntermediatePoints = (function() {
     
     function IntermediatePoints() { }
         
-    IntermediatePoints.prototype.getItens = function(callback) {
+    IntermediatePoints.prototype.getItems = function(callback) {
         var intermetiatePoints = [];
         
         $.ajax({
@@ -33,48 +33,6 @@ var IntermediatePoints = (function() {
             callback.call(this, {intermetiatePoints: intermetiatePoints});
         }
     };
-    
-    IntermediatePoints.prototype.calcDistance = function(defaults, lat, long, callback) {
-        var params = {
-            googleMaps: defaults.googleMaps,
-            interestingLat: defaults.interestingLat,
-            interestinglong: defaults.interestinglong,
-            interestingCoordinates: defaults.interestingCoordinates,
-            interestingName: defaults.interestingName,
-            lat: lat,
-            long: long
-        };
-        
-        _calcDistance(params, callback);
-    };
-    
-    function _calcDistance(params, callback) {
-        var gm = params.googleMaps;
-        var posFrom = params.lat + ',' + params.long;
-        var posTo = params.interestingLat + ',' + params.interestinglong;
-        //var posTo = params.interestingCoordinates;
-        
-        var distanceService = new gm.DistanceMatrixService();
-
-        distanceService.getDistanceMatrix({
-            origins: [posFrom],
-            destinations: [posTo],
-            travelMode: gm.TravelMode.BICYCLING,
-            unitSystem: gm.UnitSystem.METRIC
-        }, function(response) {
-            var distance = response.rows[0].elements[0].distance.value;
-            
-            var toReturn = {
-                distance: distance,
-                lat: params.interestingLat,
-                long: params.interestinglong,
-                coordinates: params.interestingCoordinates,
-                name: params.interestingName
-            };
-            
-            callback.call(this, toReturn);
-        });
-    }
     
     return IntermediatePoints;
 

@@ -15,7 +15,7 @@ body {
     height: auto;
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 242px;
     right: 0;
     top: 0;
 }
@@ -43,7 +43,10 @@ body {
     bottom: 0
 }
 
-.form-mapa .exportToKml a:hover {
+.form-mapa .exportToKml a:link,
+.form-mapa .exportToKml a:hover,
+.form-mapa .exportToKml a:active,
+.form-mapa .exportToKml a:visited {
     background: none;
 }
 

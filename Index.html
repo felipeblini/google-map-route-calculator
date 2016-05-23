@@ -38,37 +38,13 @@
             <div class="row">
                 <ul class="nav">
                     <li id="exportToKml" class="exportToKml disabled">
-                        <a href="#">Export to KML</a>
+                        <a href="#">Exportar para KML</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
     <div id="mapa"></div>
-    <script>
-        // function EnsinoSuperior() {
-        //     nivelEnsino = 'Universidade'; // variavel global (depois que executa a funcao)
-        //     var nivel = '1'; // variavel local e privada
-        //     this.nivel = '2'; // propriedade do objeto
-
-        //     console.log('nivel local', this.nivel);
-        // }
-        
-        // var escola = new EnsinoSuperior();
-        // escola.nomeEscola = 'MIT';
-        // escola.aprovada = true;
-        // escola.test = '';
-        
-        // console.log('nivelEnsino', nivelEnsino);
-        
-        // console.log('nivel propriedade', escola.nivel);
-        
-        // escola.abc();
-        
-        // for(var cadaProp in escola) {
-        //     console.log(cadaProp);
-        // }
-    </script>
 </body>
 
 <!-- jquery and gogle maps -->
@@ -76,8 +52,10 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAHnukcKfjgitOWN5XFsGchuyJnyT42JiA&amp;sensor=false"></script>
 
 <!-- app scripts -->
+<script src="js/app.js"></script>
 <script src="js/intermediatePoints.js"></script>
-<script src="js/mapa.js"></script>
+<script src="js/distanceCalculator.js"></script>
+<script src="js/exportFiles.js"></script>
 
 <!-- third part components -->
 <script src="components/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
