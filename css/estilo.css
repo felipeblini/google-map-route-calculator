@@ -48,6 +48,7 @@ body {
 .form-mapa .exportToKml a:active,
 .form-mapa .exportToKml a:visited {
     background: none;
+    outline: none;
 }
 
 .input-group {
