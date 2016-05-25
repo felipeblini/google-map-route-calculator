@@ -8,7 +8,7 @@ var IntermediatePoints = (function() {
         
         $.ajax({
             type: 'GET',
-            url: '/PontosInteresse.kml',
+            url: 'http://felipeblini.github.io/google-map-route-calculator/PontosInteresse.kml',
             dataType: 'xml',
             success: xmlParser
         });
