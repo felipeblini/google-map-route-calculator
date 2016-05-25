@@ -9,12 +9,18 @@ $(document).ready(function () {
     var map; 
 
     function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            //'Geolocation is not supported by this browser.';
+        $.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAHnukcKfjgitOWN5XFsGchuyJnyT42JiA", function (success) {
+            showMap(success.location.lat, success.location.lng);
+        })
+        .fail(function (err) {
             showMap(-15.834295, -48.023389);
-        }
+        });
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(showPosition);
+        // } else {
+        //     //'Geolocation is not supported by this browser.';
+        //     showMap(-15.834295, -48.023389);
+        // }
     }
     
     function showPosition(position) {
