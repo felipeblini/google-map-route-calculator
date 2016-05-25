@@ -13,7 +13,7 @@ body {
 
 .mapa {
     height: 100%;
-    border: solid 1px #ccc;
+   background-color: #ccc;
     position: absolute;
     min-height: 600px;
     bottom: 0;
