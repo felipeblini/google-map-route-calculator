@@ -40,7 +40,7 @@ $(document).ready(function () {
             map: map,
             draggable: true,
             animation: gm.Animation.DROP,
-            icon: '../img/usu-pointer.png'
+            icon: './img/usu-pointer.png'
         });
     
         marker.setPosition(latlng);
