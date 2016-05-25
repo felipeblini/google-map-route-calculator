@@ -2,12 +2,12 @@
 /// <reference path="distanceCalculator.js" />
 /// <reference path="exportFiles.js" />
 
-var gm = google.maps;
-var geocoder = new gm.Geocoder();
-var marker;
-var map;
-
 $(document).ready(function () {
+    var gm = google.maps;
+    var geocoder = new gm.Geocoder();
+    var marker;
+    var map; 
+
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
